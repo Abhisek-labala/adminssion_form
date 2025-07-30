@@ -29,8 +29,6 @@
             </thead>
         </table>
     </div>
-
-    <!-- Add Modal -->
     <div class="modal fade" id="addModal" tabindex="-1">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
@@ -117,8 +115,6 @@
         </div>
     </div>
 
-
-    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -183,50 +179,42 @@
             const status = $('#status').val();
             const hospital = $('#hospital_name').val();
 
-            // Name validation (only letters and space)
             if (!name || !/^[A-Za-z\s]+$/.test(name)) {
                 isValid = false;
                 errors.push('Patient Name is required and must contain only letters and spaces.');
             }
 
-            // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!email || !emailRegex.test(email)) {
                 isValid = false;
                 errors.push('A valid Patient Email is required.');
             }
 
-            // Doctor name
             if (!doctor) {
                 isValid = false;
                 errors.push('Doctor Name is required.');
             }
 
-            // Department
             if (!department) {
                 isValid = false;
                 errors.push('Department is required.');
             }
 
-            // Admission date
             if (!admissionDate) {
                 isValid = false;
                 errors.push('Admission Date is required.');
             }
 
-            // Reason
             if (!reason) {
                 isValid = false;
                 errors.push('Reason is required.');
             }
 
-            // Status
             if (!status) {
                 isValid = false;
                 errors.push('Status is required.');
             }
 
-            // Hospital
             if (!hospital) {
                 isValid = false;
                 errors.push('Hospital Name is required.');
@@ -237,7 +225,6 @@
                 return;
             }
 
-            // Submit the form
             $.ajax({
                 url: '{{ route("admission.store") }}',
                 type: 'POST',
@@ -261,7 +248,6 @@
         });
 
         $(document).ready(function () {
-            // Initialize selectize
             $('#hospital_name').selectize({
                 valueField: 'name',
                 labelField: 'name',
