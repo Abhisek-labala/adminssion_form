@@ -9,10 +9,10 @@ A step-by-step guide to install, configure, migrate, and run the Laravel project
 Make sure your system has the following:
 
 - PHP >= 8.2
+- Laravel >= 12
 - Composer
-- MySQL or PostgreSQL
+- PostgreSQL
 - Node.js & NPM
-- Redis (optional, for queue)
 - Laravel CLI (optional)
 
 ---
@@ -31,6 +31,7 @@ cd adminssion_form
 php artisan serve
 
 #To start the queue worker
+
 php artisan queue:work
 
 
